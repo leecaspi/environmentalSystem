@@ -1,16 +1,24 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
+
+
+application { // Add this section – it identifies which class contains the entry point to the program which is always a method called main
+    mainClass='Main'
+}
+
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:6.0.0')
+    implementation files('HES.jar')
+    testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
